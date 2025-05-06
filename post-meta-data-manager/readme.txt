@@ -5,7 +5,7 @@ Plugin Name:  Post Meta Data Manager
 Plugin URI: http://www.wpexpertplugins.com/
 Tags: custom post meta editor, meta fiedls editor, meta, post meta, inspector, custom fields, debug, tools
 Requires at least: 3.0
-Tested up to: 6.5.4
+Tested up to: 6.8
 Stable tag: 1.4.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -61,11 +61,8 @@ The plugin is simple to install:
 3. Edit multi fields value.
 
 == Changelog ==
-= 1.4.3 - 2024-09-18 = 
-* Resolved a support ticket.
-* Fixed edit & delete not working issue when wc installed and hpos not enabled.
-* Date paid support provided in wc order
-
+= 1.4.3 - 2025-04-25 = 
+* Resolved multisite security issue.
 
 = 1.4.2 - 2024-07-23 = 
 * Resolved a support ticket.

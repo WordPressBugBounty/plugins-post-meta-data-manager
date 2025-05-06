@@ -43,7 +43,7 @@ class Pmdm_Wp_Admin
 		$current_screen = get_current_screen();
 
 		$metabox_id               = 'pmdm-wp';
-		$metabox_title            = esc_html__('Post Metadata Manager', 'pmdm_wp');
+		$metabox_title            = esc_html__('Post Metadata Manager', 'post-meta-data-manager');
 		$metabox_screen           = $post_type;
 		$metabox_context          = 'normal';
 		$metabox_priority         = 'low';
@@ -205,7 +205,7 @@ class Pmdm_Wp_Admin
 					
 					if (empty($meta_value) && $meta_value != '0') {
 						wp_send_json_error(
-							array( 'msg' => esc_html__('You have enter incorrect meta_id ! Please try again', 'pmdm_wp') )
+							array( 'msg' => esc_html__('You have enter incorrect meta_id ! Please try again', 'post-meta-data-manager') )
 						);
 					}
 
@@ -213,7 +213,7 @@ class Pmdm_Wp_Admin
 						$order->delete_meta_data($meta_id);
 						$order->save_meta_data();
 						wp_send_json_success(
-							array( 'msg' => esc_html__('Meta successfully deleted', 'pmdm_wp') )
+							array( 'msg' => esc_html__('Meta successfully deleted', 'post-meta-data-manager') )
 						);
 					}
 				}
@@ -222,19 +222,19 @@ class Pmdm_Wp_Admin
 				
 				if (empty($meta_value) && $meta_value != '0') {
 					wp_send_json_error(
-						array( 'msg' => esc_html__('You have enter incorrect meta_id ! Please try again', 'pmdm_wp') )
+						array( 'msg' => esc_html__('You have enter incorrect meta_id ! Please try again', 'post-meta-data-manager') )
 					);
 				}
 
 				delete_post_meta($post_id, $meta_id);
 
 				wp_send_json_success(
-					array( 'msg' => esc_html__('Meta successfully deleted', 'pmdm_wp') )
+					array( 'msg' => esc_html__('Meta successfully deleted', 'post-meta-data-manager') )
 				);
 			}
 		} else {
 			wp_send_json_error(
-				array( 'msg' => esc_html__('There is something worong! Please try again', 'pmdm_wp') )
+				array( 'msg' => esc_html__('There is something worong! Please try again', 'post-meta-data-manager') )
 			);
 		}
 
@@ -257,18 +257,18 @@ class Pmdm_Wp_Admin
 
 			if (empty($user_meta_value) && $user_meta_value != '0') {
 				wp_send_json_error(
-					array( 'msg' => esc_html__('You have enter incorrect meta_id ! Please try again', 'pmdm_wp') )
+					array( 'msg' => esc_html__('You have enter incorrect meta_id ! Please try again', 'post-meta-data-manager') )
 				);
 			}
 
 			delete_user_meta($user_ID, $meta_id);
 
 			wp_send_json_success(
-				array( 'msg' => esc_html__('Meta successfully deleted', 'pmdm_wp') )
+				array( 'msg' => esc_html__('Meta successfully deleted', 'post-meta-data-manager') )
 			);
 		} else {
 			wp_send_json_error(
-				array( 'msg' => esc_html__('There is something worong! Please try again', 'pmdm_wp') )
+				array( 'msg' => esc_html__('There is something worong! Please try again', 'post-meta-data-manager') )
 			);
 		}
 
@@ -314,7 +314,7 @@ class Pmdm_Wp_Admin
 				}
 			}
 			if (! $is_editable) {
-				esc_html_e('This key contains some object information. So it\'s not editable.', 'pmdm_wp');
+				esc_html_e('This key contains some object information. So it\'s not editable.', 'post-meta-data-manager');
 			}
 		} else {
 			?>
@@ -401,10 +401,30 @@ class Pmdm_Wp_Admin
 
 		if (isset($_POST['change_user_meta_field']) && wp_verify_nonce($_POST['change_user_meta_field'], 'change_user_meta_action') && current_user_can('administrator')) {
 			if (! empty($_POST)) {
+				
+				$is_multisite = is_multisite();
+				$current_site_id = get_current_blog_id();
+				
+				
 				foreach ($_POST as $pk => $pv) {
 					if ($pk == 'change_user_meta_field' || $pk == '_wp_http_referer' || $pk == 'current_user_id') {
 						continue;
 					}
+					
+					
+					if($is_multisite){
+
+						if (preg_match('/^wp_(\d+)_capabilities$/', $pk, $matches)) {
+							$meta_site_id = intval($matches[1]);
+							
+							if ($meta_site_id !== $current_site_id) {
+								continue;
+							}
+						}
+						
+					}
+					
+					
 					if (isset($_POST['changed_keys']) && $pk == $_POST['changed_keys']) {
 						if (is_array($pv)) {
 							$pv = $this->pmdm_wp_escape_slashes_deep($pv);
@@ -588,18 +608,18 @@ class Pmdm_Wp_Admin
 
 			if (empty($term_value) && $term_value != '0') {
 				wp_send_json_error(
-					array( 'msg' => esc_html__('You have enter incorrect meta_id ! Please try again', 'pmdm_wp') )
+					array( 'msg' => esc_html__('You have enter incorrect meta_id ! Please try again', 'post-meta-data-manager') )
 				);
 			}
 
 			delete_term_meta($term_id, $meta_id);
 
 			wp_send_json_success(
-				array( 'msg' => esc_html__('Meta successfully deleted', 'pmdm_wp') )
+				array( 'msg' => esc_html__('Meta successfully deleted', 'post-meta-data-manager') )
 			);
 		} else {
 			wp_send_json_error(
-				array( 'msg' => esc_html__('There is something worong! Please try again', 'pmdm_wp') )
+				array( 'msg' => esc_html__('There is something worong! Please try again', 'post-meta-data-manager') )
 			);
 		}
 
@@ -610,16 +630,16 @@ class Pmdm_Wp_Admin
     {
 		$parent_page_slug = 'pmdm-general-settings';
 		add_menu_page(
-			esc_html__('PMDM Settings', 'pmdm_wp'),
-			esc_html__('PMDM Settings', 'pmdm_wp'),
+			esc_html__('PMDM Settings', 'post-meta-data-manager'),
+			esc_html__('PMDM Settings', 'post-meta-data-manager'),
 			'manage_options',
 			$parent_page_slug,
 			array( $this, 'pmdm_general_settings_cb' ),
 		);
 		add_submenu_page(
 			$parent_page_slug,
-			esc_html__('Help', 'pmdm_wp'),
-			esc_html__('Help', 'pmdm_wp'),
+			esc_html__('Help', 'post-meta-data-manager'),
+			esc_html__('Help', 'post-meta-data-manager'),
 			'manage_options',
 			'pmdm-help',
 			array( $this, 'pmdm_help_cb' ),

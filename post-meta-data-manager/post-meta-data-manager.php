@@ -6,11 +6,12 @@
  * Description: Post Meta management Posts, Pages, Custom Post Types, Users, Taxonomoies.
  * Version: 1.4.3
  * Author: WpExpertPlugins
- * Text Domain: pmdm_wp
+ * Text Domain: post-meta-data-manager
  * Author URI: http://www.wpexpertplugins.com/contact-us/
  * Requires at least: 6.0.1
- * WC tested up to: 6.1
+ * WC tested up to: 6.8
  * Domain Path: /languages
+ * License: GPL3 http://www.gnu.org/licenses/gpl-3.0.html
  */
 
 /**
@@ -20,37 +21,37 @@
  * @since   1.0
  */
 
-if (! defined('PMDM_WP_DIR')) {
+if (! defined('PMDM_WP_DIR') ) {
     define('PMDM_WP_DIR', __DIR__);      // Plugin dir
 }
-if (! defined('PMDM_WP_VERSION')) {
+if (! defined('PMDM_WP_VERSION') ) {
     define('PMDM_WP_VERSION', '1.4.3');
 }
-if (! defined('PMDM_WP_PLUGIN_MAIN_FILE_PATH')) {
+if (! defined('PMDM_WP_PLUGIN_MAIN_FILE_PATH') ) {
     define('PMDM_WP_PLUGIN_MAIN_FILE_PATH', __FILE__);   // mail file path
 }
-if (! defined('PMDM_WP_URL')) {
+if (! defined('PMDM_WP_URL') ) {
     define('PMDM_WP_URL', plugin_dir_url(__FILE__));   // Plugin url
 }
-if (! defined('PMDM_WP_INC_DIR')) {
+if (! defined('PMDM_WP_INC_DIR') ) {
     define('PMDM_WP_INC_DIR', PMDM_WP_DIR . '/includes');   // Plugin include dir
 }
-if (! defined('PMDM_WP_INC_URL')) {
+if (! defined('PMDM_WP_INC_URL') ) {
     define('PMDM_WP_INC_URL', PMDM_WP_URL . 'includes');    // Plugin include url
 }
-if (! defined('PMDM_WP_ADMIN_DIR')) {
+if (! defined('PMDM_WP_ADMIN_DIR') ) {
     define('PMDM_WP_ADMIN_DIR', PMDM_WP_INC_DIR . '/admin');  // Plugin admin dir
 }
-if (! defined('PMDM_WP_BASE_NAME')) {
+if (! defined('PMDM_WP_BASE_NAME') ) {
     define('PMDM_WP_BASE_NAME', 'pmdm_wp'); // Plugin folder name
 }
-if (! defined('PMDM_WP_PREFIX')) {
+if (! defined('PMDM_WP_PREFIX') ) {
     define('PMDM_WP_PREFIX', 'pmdm_wp'); // Plugin Prefix
 }
-if (! defined('PMDM_WP_VAR_PREFIX')) {
+if (! defined('PMDM_WP_VAR_PREFIX') ) {
     define('PMDM_WP_VAR_PREFIX', '_pmdm_wp_'); // Variable Prefix
 }
-if (! defined('PMDM_HELP_LINK')) {
+if (! defined('PMDM_HELP_LINK') ) {
     define('PMDM_HELP_LINK', 'http://www.wpexpertplugins.com/contact-us/'); // Variable Prefix
 }
 
@@ -72,19 +73,19 @@ function pmdm_wp_init_textdomain()
     $pmdm_wp_lang_dir = apply_filters('pmdm_wp_languages_directory', $pmdm_wp_lang_dir);
 
     // WordPress Locale file
-    $locale = apply_filters('plugin_locale', get_locale(), 'pmdm_wp');
-    $mofile = sprintf('%1$s-%2$s.mo', 'pmdm_wp', $locale);
+    $locale = apply_filters('plugin_locale', get_locale(), 'post-meta-data-manager');
+    $mofile = sprintf('%1$s-%2$s.mo', 'post-meta-data-manager', $locale);
 
     // Setup path to current locale
     $mofile_locale = $pmdm_wp_lang_dir . $mofile;
     $mofile_global = WP_LANG_DIR . '/' . PMDM_WP_BASE_NAME . '/' . $mofile;
 
-    if (file_exists($mofile_global)) { // look in global Languages folder
-        load_textdomain('pmdm_wp', $mofile_global);
-    } elseif (file_exists($mofile_locale)) { // look in local plugin Languages folder
-        load_textdomain('pmdm_wp', $mofile_locale);
+    if (file_exists($mofile_global) ) { // look in global Languages folder
+        load_textdomain('post-meta-data-manager', $mofile_global);
+    } elseif (file_exists($mofile_locale) ) { // look in local plugin Languages folder
+        load_textdomain('post-meta-data-manager', $mofile_locale);
     } else { // Load the default Languages file
-        load_plugin_textdomain('pmdm_wp', false, $pmdm_wp_lang_dir);
+        load_plugin_textdomain('post-meta-data-manager', false, $pmdm_wp_lang_dir);
     }
 }
 

@@ -3,7 +3,7 @@
 if ( !defined( 'ABSPATH' ) ) exit;
 
 
-$content = esc_html__("Looking for expert assistance with your WordPress sites? You’ve come to the right place. Whether it’s a one-off customization project or a long-term partnership that can grow with you, we can help you get the job done right.", 'pmdm_wp');
+$content = esc_html__("Looking for expert assistance with your WordPress sites? You’ve come to the right place. Whether it’s a one-off customization project or a long-term partnership that can grow with you, we can help you get the job done right.", 'post-meta-data-manager');
 /* Welcome to our expert WordPress assistance services! We understand that managing a WordPress site can be a challenging task, and we're here to help you make the most of your site.
 
 Whether you need a one-time customization or a long-term partnership to help you grow your online presence, i am here to assist you every step of the way. I have extensive experience with WordPress and can help you with any project, big or small.
@@ -19,7 +19,7 @@ Migration: If you're looking to migrate your site to WordPress, we can help you 
 No matter what your WordPress needs are, our team is dedicated to delivering exceptional service and results. Contact us today to learn more about how we can help you grow your online presence with WordPress. */
 ?>
 <div class="wrap">
-    <h1><?php esc_html_e('Post Metadata Manager Help', 'pmdm_wp'); ?></h1>
+    <h1><?php esc_html_e('Post Metadata Manager Help', 'post-meta-data-manager'); ?></h1>
     <h3 class=""></h3>
     <footer class="tribe-events-admin-cta">
 		
@@ -31,7 +31,7 @@ No matter what your WordPress needs are, our team is dedicated to delivering exc
 
 			<div class="tribe-events-admin-cta__content-description">
 				<a href="<?php echo PMDM_HELP_LINK; ?>">
-					<?php esc_html_e( 'Contact us for help', 'pmdm_wp' ); ?>
+					<?php esc_html_e( 'Contact us for help', 'post-meta-data-manager' ); ?>
 				</a>
 			</div>
 		</div>

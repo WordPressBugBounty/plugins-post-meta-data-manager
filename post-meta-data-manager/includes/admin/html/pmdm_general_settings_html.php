@@ -30,13 +30,13 @@ if(!empty($pmdm_selected_taxonomies)){
 }
 ?>
 <div class="wrap">
-    <h1><?php esc_html_e('PMDM General Settings', 'pmdm_wp'); ?></h1>
+    <h1><?php esc_html_e('PMDM General Settings', 'post-meta-data-manager'); ?></h1>
     <form method="post" action="options.php" novalidate="novalidate">
         <?php settings_fields( 'pmdm_general_settings_group' ); ?>
         <table class="form-table" role="presentation">
             <tbody>
                 <tr>
-                    <th scope="row"><label for="blogname"><?php esc_html_e('Post types', 'pmdm_wp'); ?></label></th>
+                    <th scope="row"><label for="blogname"><?php esc_html_e('Post types', 'post-meta-data-manager'); ?></label></th>
                     <td> 
                         <fieldset>
                             <?php
@@ -60,7 +60,7 @@ if(!empty($pmdm_selected_taxonomies)){
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row"><label for="blogname"><?php esc_html_e('Taxonomies', 'pmdm_wp'); ?></label></th>
+                    <th scope="row"><label for="blogname"><?php esc_html_e('Taxonomies', 'post-meta-data-manager'); ?></label></th>
                     <td> 
                         <fieldset>
                             <?php
