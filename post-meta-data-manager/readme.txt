@@ -1,6 +1,7 @@
 === Post Meta Data Manager ===
 
 Contributors: gandhihitesh9
+Donate link: https://paypal.me/h1994tesh
 Plugin Name:  Post Meta Data Manager
 Plugin URI: http://www.wpexpertplugins.com/
 Tags: custom post meta editor, meta fiedls editor, meta, post meta, inspector, custom fields, debug, tools
@@ -61,7 +62,7 @@ The plugin is simple to install:
 3. Edit multi fields value.
 
 == Changelog ==
-= 1.4.3 - 2025-04-25 = 
+= 1.4.3 - 2025-04-25 =
 * Resolved multisite security issue.
 
 = 1.4.2 - 2024-07-23 = 
