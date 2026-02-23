@@ -36,7 +36,14 @@ if(!empty($pmdm_selected_taxonomies)){
         <table class="form-table" role="presentation">
             <tbody>
                 <tr>
-                    <th scope="row"><label for="blogname"><?php esc_html_e('Post types', 'post-meta-data-manager'); ?></label></th>
+                    <th scope="row" class="pmdm-post-types-heading">
+                        <div class="pmdm-select-all-post-types">
+                            <label for="select_all_post_types">
+                                <?php esc_html_e('Post types', 'post-meta-data-manager'); ?>
+                            </label>
+                            <input type="checkbox" id="select_all_post_types">
+                        </div>
+                    </th>
                     <td> 
                         <fieldset>
                             <?php
@@ -48,7 +55,7 @@ if(!empty($pmdm_selected_taxonomies)){
                                         }
                                         ?>
                                             <label class="pmdm_selected_post_types_wrapper">
-                                                <input name="pmdm_selected_post_types[]" type="checkbox" value="<?php echo $ptk; ?>" <?php echo $checked; ?>> <?php echo $ptv->label; ?>
+                                                <input name="pmdm_selected_post_types[]" type="checkbox" value="<?php echo $ptk; ?>" <?php echo $checked; ?> class="pmdm_selected_post_types"> <?php echo $ptv->label; ?>
                                             </label>
                                         <?php
                                         
@@ -60,7 +67,14 @@ if(!empty($pmdm_selected_taxonomies)){
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row"><label for="blogname"><?php esc_html_e('Taxonomies', 'post-meta-data-manager'); ?></label></th>
+                    <th scope="row" class="pmdm-post-types-heading">
+                        <div class="pmdm-select-all-post-types">
+                            <label for="select_all_taxonomies">
+                                <?php esc_html_e('Taxonomies', 'post-meta-data-manager'); ?>
+                            </label>
+                            <input type="checkbox" id="select_all_taxonomies">
+                        </div>
+                    </th>
                     <td> 
                         <fieldset>
                             <?php
@@ -73,7 +87,7 @@ if(!empty($pmdm_selected_taxonomies)){
                                         }
                                         ?>
                                             <label class="pmdm_selected_post_types_wrapper">
-                                                <input name="pmdm_selected_taxonomies[]" type="checkbox" value="<?php echo $ptk; ?>" <?php echo $checked; ?>> <?php echo $ptv->label; ?>
+                                                <input name="pmdm_selected_taxonomies[]" type="checkbox" value="<?php echo $ptk; ?>" <?php echo $checked; ?> class="pmdm_selected_taxonomies"> <?php echo $ptv->label; ?>
                                             </label>
                                         <?php
                                         

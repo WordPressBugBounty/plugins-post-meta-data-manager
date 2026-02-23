@@ -7,12 +7,15 @@ Plugin URI: http://www.wpexpertplugins.com/
 Tags: custom post meta editor, meta fiedls editor, meta, post meta, inspector, custom fields, debug, tools
 Requires at least: 3.0
 Tested up to: 6.8
-Stable tag: 1.4.3
+Stable tag: 1.4.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 WC tested up to: 4.8.0
 Author URI: http://www.wpexpertplugins.com/contact-us/
 
+
+=== Post Meta Data Manager ===
+View, edit, search, and manage post meta, user meta, and taxonomy meta directly from WordPress edit screens—no database access needed.
 
 == Description ==
 **Tired of changing values of hidden post meta or custom post meta through database or coding?**
@@ -62,6 +65,10 @@ The plugin is simple to install:
 3. Edit multi fields value.
 
 == Changelog ==
+= 1.4.4 - 2026-02-24 =
+* Added select all functionality into the settings page for check/uncheck all post types & taxonomies.
+
+
 = 1.4.3 - 2025-04-25 =
 * Resolved multisite security issue.
 

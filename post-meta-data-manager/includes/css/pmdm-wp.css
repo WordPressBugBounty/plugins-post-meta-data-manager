@@ -144,3 +144,18 @@ div.dataTables_wrapper div.dataTables_length select {
 label.pmdm_selected_post_types_wrapper {
     width: 25%;
 }
+
+
+
+.pmdm-select-all-post-types {
+    display: flex;
+    align-items: center;
+    
+    gap: 8px;
+    min-height: 32px;
+}
+
+.pmdm-select-all-post-types label,
+.pmdm-select-all-post-types input {
+    margin: 0;
+}

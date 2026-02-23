@@ -197,4 +197,19 @@ jQuery(document).ready(function($) {
 	    return false;
 
 	});
+	
+	/**
+	 * Select all post types and taxonomies
+	 *
+	 * @package Post Meta Data Manager
+	 * @since 1.0.4
+	 */
+	$("#select_all_post_types").change(function(){
+		var checked = $(this).is(":checked");
+		$(".pmdm_selected_post_types").prop("checked", checked);
+	});
+	$("#select_all_taxonomies").change(function(){
+		var checked = $(this).is(":checked");
+		$(".pmdm_selected_taxonomies").prop("checked", checked);
+	});
 } );
