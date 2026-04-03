@@ -242,6 +242,54 @@ class Pmdm_Wp_Admin
 	}
 
 	/**
+	 * Bulk Delete Post Meta Ajax
+	 *
+	 * @package Post Meta Data Manager
+	 */
+	public function pmdm_wp_ajax_bulk_delete_meta()
+    {
+		if (isset($_POST) && ! empty($_POST['post_id']) && isset($_POST['meta_ids']) && is_array($_POST['meta_ids']) && current_user_can('administrator') && wp_verify_nonce($_POST['security'], 'ajax-security')) {
+			$post_id    = intval($_POST['post_id']);
+			$meta_ids   = array_map('esc_html', stripslashes_deep($_POST['meta_ids']));
+			$post_type = get_post_type($post_id);
+			
+			$is_hpos = false;
+			if (class_exists(OrderUtil::class) && $post_type == "shop_order") {
+				if (OrderUtil::custom_orders_table_usage_is_enabled()) {
+					$is_hpos = true;
+				}
+			}
+
+			if ($is_hpos) {
+				$order = wc_get_order($post_id);
+				if ($order) {
+					foreach ($meta_ids as $meta_id) {
+						$order->delete_meta_data($meta_id);
+					}
+					$order->save_meta_data();
+					wp_send_json_success(
+						array( 'msg' => esc_html__('Metadata successfully deleted', 'post-meta-data-manager') )
+					);
+				}
+			} else {
+				foreach ($meta_ids as $meta_id) {
+					delete_post_meta($post_id, $meta_id);
+				}
+
+				wp_send_json_success(
+					array( 'msg' => esc_html__('Metadata successfully deleted', 'post-meta-data-manager') )
+				);
+			}
+		} else {
+			wp_send_json_error(
+				array( 'msg' => esc_html__('There is something wrong! Please try again', 'post-meta-data-manager') )
+			);
+		}
+
+		die();
+	}
+
+	/**
 	 * Delete User Meta Ajax
 	 *
 	 * @package Post Meta Data Manager
@@ -682,6 +730,7 @@ class Pmdm_Wp_Admin
 		add_action('admin_init', array( $this, 'pmdm_wp_change_post_meta' ), 10);
 
 		add_action('wp_ajax_pmdm_wp_delete_meta', array( $this, 'pmdm_wp_ajax_delete_meta' ));
+		add_action('wp_ajax_pmdm_wp_bulk_delete_meta', array( $this, 'pmdm_wp_ajax_bulk_delete_meta' ));
 
 		// user details page hooks
 		add_action('edit_user_profile', array( $this, 'pmdm_wp_user_metadata_box' ), 99);

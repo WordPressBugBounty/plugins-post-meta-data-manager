@@ -10,9 +10,13 @@ if (! defined('ABSPATH')) {
  * @package Post Meta Data Manager
  * @since 1.0.2
  */
-?><table id="pmdm-wp-table" class="display" style="width:100%">
+?><div style="margin-bottom: 15px; text-align: right;">
+	<button type="button" class="button button-secondary" id="pmdm-wp-bulk-delete-btn"><?php echo esc_html__('Bulk Delete', 'post-meta-data-manager'); ?></button>
+</div>
+<table id="pmdm-wp-table" class="display" style="width:100%">
 <thead>
 	<tr>
+		<th><input type="checkbox" id="pmdm-wp-select-all" /></th>
 		<th><?php echo esc_html__('Key', 'post-meta-data-manager'); ?></th>
 		<th><?php echo esc_html__('Value', 'post-meta-data-manager'); ?></th>
 		<th><?php echo esc_html__('Action', 'post-meta-data-manager'); ?></th>
@@ -49,6 +53,7 @@ if (! defined('ABSPATH')) {
 
 		?>
 			<tr>
+				<td><input type="checkbox" class="pmdm-wp-row-checkbox" value="<?php echo esc_attr($meta_key); ?>" /></td>
 				<td><?php echo esc_html($meta_key); ?></td>
 				<td><?php echo esc_html(var_export($value, true)); ?></td>
 				<td>

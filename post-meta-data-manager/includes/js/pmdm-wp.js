@@ -1,7 +1,8 @@
 jQuery(document).ready(function($) {
     jQuery('#pmdm-wp-table').DataTable( {
     	 columns: [
-		    null,
+			{ orderable: false, "width": "5%", "className": "dt-center" },
+			{ orderable: true },
 		    { orderable: false },
 		    { 	
 				orderable: false,
@@ -107,6 +108,60 @@ jQuery(document).ready(function($) {
 	    }
 	    return false;
 
+	});
+
+	/* Select All logic */
+	jQuery(document).on('change', '#pmdm-wp-select-all', function () {
+		var isChecked = jQuery(this).is(':checked');
+		jQuery('.pmdm-wp-row-checkbox').prop('checked', isChecked);
+	});
+
+	/* Uncheck Select All if a row checkbox is unchecked */
+	jQuery(document).on('change', '.pmdm-wp-row-checkbox', function () {
+		if (!jQuery(this).is(':checked')) {
+			jQuery('#pmdm-wp-select-all').prop('checked', false);
+		}
+	});
+
+	/* Bulk Delete Action */
+	jQuery('#pmdm-wp-bulk-delete-btn').on('click', function (e) {
+		e.preventDefault();
+
+		var selectedMeta = [];
+		jQuery('.pmdm-wp-row-checkbox:checked').each(function () {
+			selectedMeta.push(jQuery(this).val());
+		});
+
+		if (selectedMeta.length === 0) {
+			alert('Please select at least one meta key to delete.');
+			return false;
+		}
+
+		if (confirm("Are you sure you want to delete the selected Meta keys?")) {
+			var post_id = jQuery("#post_ID").val();
+			var table = jQuery('#pmdm-wp-table').DataTable();
+
+			jQuery.ajax({
+				url: pmdm_wp_ajax.ajax_url,
+				type: 'post',
+				dataType: 'json',
+				data: {
+					action: 'pmdm_wp_bulk_delete_meta',
+					post_id: post_id,
+					meta_ids: selectedMeta,
+					security: pmdm_wp_ajax.security
+				},
+				success: function (response) {
+					if (response.success) {
+						table.rows(jQuery('.pmdm-wp-row-checkbox:checked').closest('tr')).remove().draw();
+						jQuery('#pmdm-wp-select-all').prop('checked', false);
+					} else {
+						alert(response.data.msg);
+					}
+				}
+			});
+		}
+		return false;
 	});
 	/**
 	 * User meta datatable

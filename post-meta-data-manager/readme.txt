@@ -4,67 +4,66 @@ Contributors: gandhihitesh9
 Donate link: https://paypal.me/h1994tesh
 Plugin Name:  Post Meta Data Manager
 Plugin URI: http://www.wpexpertplugins.com/
-Tags: custom post meta editor, meta fiedls editor, meta, post meta, inspector, custom fields, debug, tools
+Tags: custom post meta editor, meta fields editor, meta, post meta, inspector, custom fields, debug, tools
 Requires at least: 3.0
 Tested up to: 6.8
-Stable tag: 1.4.4
+Stable tag: 1.5.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 WC tested up to: 4.8.0
 Author URI: http://www.wpexpertplugins.com/contact-us/
 
-
-=== Post Meta Data Manager ===
-View, edit, search, and manage post meta, user meta, and taxonomy meta directly from WordPress edit screens—no database access needed.
+View, modify, search, and delete post meta, user meta, and taxonomy meta right from your WordPress edit screens—all without ever touching the database or writing code.
 
 == Description ==
-**Tired of changing values of hidden post meta or custom post meta through database or coding?**
-**Then you have landed on Correct wordpress plugin.**
 
-**Need some help to view your post meta or custom fields?**
+**Stop wasting time editing hidden or custom post meta values in the database or code.**
+**Well, you're looking at the ultimate solution.**
 
-Post Meta Data Manager plugin displays all post meta or custom fields keys and their values in a metabox at the bottom of post editing.
+The Post Meta Data Manager helps you effortlessly view, edit, search, and manage Custom Fields/Post Meta. It elegantly displays all your post meta keys and values inside a metabox situated directly at the bottom of the post editing screen.
 
-Awesome thing is there are no plugin settings.
-You just need to install and activate the plugin by yourself.
 
-**Boom! Added User Meta Manager**
-* Now you can handle all user meta fields values from user edit page.
+**Powerful Meta Management Features:**
 
-**Added Taxonomoies Meta Manager**
-* Now you can handle all term or taxonomies meta fields values from term edit page.
+* **User Meta Manager:** Effortlessly manage user meta fields straight from the user profile edit screen.
+* **Taxonomy Meta Manager:** Manage term and taxonomy meta fields efficiently from any term edit page.
+* **Custom Post Type Support:** Configure which post types display the meta data manager box.
+* **Bulk Delete Functionality:** Seamlessly select and bulk delete multiple meta keys at once while editing a specific post to save time.
 
-**Enabling the display of post meta data manager box by configuring the selected post type.**
+= Key Features: =
 
-= Stunning Features: =
+* Quickly search, sort, and edit specific meta values right on the editing screen.
+* Supports ascending and descending sorting on the key column for intuitive navigation.
+* Elegant pagination shows 10 items per page—say goodbye to endlessly long lists!
+* Fully compatible with any built-in or custom post types.
 
-* You can search & replace that values from edit pages and posts.
-* You can sort key column by ascending and descending orders.
-* There is no long list of the meta keys. You will see in 10 items in a page.
-* Works with any custom post types.
-
-* Do you have an idea or want to some enhancement then just contact me.
-* [Feature requests](http://www.wpexpertplugins.com/contact-us/)
+**Got feature ideas or looking for enhancements? We're all ears!**
+* [Submit a Feature Request](http://www.wpexpertplugins.com/contact-us/)
 
 = Contributing =
 
-* report bugs and suggest features on [GitHub](https://github.com/gandhihitesh9/post-meta-data-manager) or [WordPress Support Forum]((https://wordpress.org/support/plugin/post-meta-data-manager))
+Help us make the plugin even better! Report bugs and suggest new features on [GitHub](https://github.com/gandhihitesh9/post-meta-data-manager) or the [WordPress Support Forum](https://wordpress.org/support/plugin/post-meta-data-manager).
 
 == Installation ==
 
-The plugin is simple to install:
+Installing the plugin is a breeze:
 
- * Download post-meta-data-manager.zip
- * Unzip
- * Upload post-meta-data-manager directory to your /wp-content/plugins directory
- * Activate the "Post Meta Data Manager" list plugin through the 'Plugins' menu in WordPress.
+ 1. Download the `post-meta-data-manager.zip` file.
+ 2. Unzip the downloaded file.
+ 3. Upload the `post-meta-data-manager` directory into your `/wp-content/plugins` folder.
+ 4. Activate the "Post Meta Data Manager" plugin through the 'Plugins' menu in WordPress.
 
 == Screenshots ==
-1. List of keys with search, pagination, limit per page, sorting by key column.
-2. Edit single field value.
-3. Edit multi fields value.
+
+1. A clear list of keys with searching, pagination, limits, and easy column sorting.
+2. The streamlined interface for editing a single field value.
+3. Effortless multi-field value editing.
 
 == Changelog ==
+
+= 1.4.5 - 2026-04-04 =
+* Added Bulk Delete Functionality for post metas.
+
 = 1.4.4 - 2026-02-24 =
 * Added select all functionality into the settings page for check/uncheck all post types & taxonomies.
 
@@ -101,7 +100,7 @@ The plugin is simple to install:
 * Vulnerability fixes
 
 = 1.2.0 - 2023-04-15 = 
-* Selection of taxonomoies setting provided.
+* Selection of taxonomies setting provided.
 
 
 = 1.1.5 - 2023-04-11 = 
